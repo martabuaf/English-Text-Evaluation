@@ -1,5 +1,3 @@
-# English-Text-Evaluation
-
 <h1 style="text-align:center;">Evaluación de textos en inglés</h1>
 
 <h3>Resumen:</h3>
