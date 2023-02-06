@@ -20,7 +20,9 @@ import seaborn as sns
 # Integración
 import streamlit as st
 
-# Intriduzco el texto
+# Introduzco el texto
+
+st.set_page_config(page_title='Simply! Translate', page_icon='translator-icon.png', layout='wide', initial_sidebar_state='expanded')
 
 st.title("English Text Evaluation")
 
@@ -167,6 +169,8 @@ if st.button('Get corrected text'):
         text_metrics = get_metrics(text)
         
         st.info(str(corrected_text))
+        
+        st.balloons()
 
 else:
     pass
