@@ -287,7 +287,7 @@ sns.heatmap(scored_df.corr(), annot = True, cmap = "coolwarm", center = 0)
 
 plt.title(label = "Matriz de correlaciones")
 
-plt.show()
+plt.savefig("heatmap.png")
 
 ## Paso 3: Clasificación
 
