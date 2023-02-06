@@ -10,7 +10,7 @@
 <h3>Paso 2: Procesamiento del lenguaje natural (NLP)</h3> 
 <p>Una vez hemos limpiado y corregido el texto, nos interesa evaluar la cohesión y la intencionalidad. Añadiremos estos atributos a los datos.</p>
 <h3>Paso 3: Clasificación</h3> 
-<p>Llevaremos a cabo la clasificación supervisada de los datos. Para ello utilizamos previamente los datos de entrenamiento para entrenar el modelo, que luego aplicaremos sobre los datos de prueba. Estudiaremos diferentes métodos de clasificación y buscaremos los valores óptimos de los parámetros.</p><p>La información sobre los distintos algoritmos de clasificación la encontramos **modificar** <a href = "https://scikit-learn.org/stable/modules/clustering.html">aquí</a>.</p>
+<p>Llevaremos a cabo la clasificación supervisada de los datos. Para ello utilizamos previamente los datos de entrenamiento para entrenar el modelo, que luego aplicaremos sobre los datos de prueba. Estudiaremos diferentes métodos de clasificación y buscaremos los valores óptimos de los parámetros.</p>
 <h3>Paso 4: Evaluación de los resultados</h3> 
 <p>Tras la evaluación de los distintos métodos, nos centraremos en el que mejor resultados nos aporta para nuestro fin. Representaremos los datos resultantes de la clasificación para los datos de prueba.</p>
 <h3>Paso 6: Integración</h3> 
