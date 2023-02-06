@@ -164,7 +164,7 @@ if st.button('Get corrected text'):
 
     else:
     
-        corrected_text = heck_mistakes(text)
+        corrected_text = check_mistakes(text)
         
         text_metrics = get_metrics(text)
         
