@@ -28,6 +28,8 @@ st.title("English Text Evaluation")
 
 text = st.text_area("Enter text:", height = None, max_chars = None, key = None, help = "Enter your text here")
 
+st.write("The entered text is:",text)
+
 # Busco y corrijo los errores del texto
 
 def check_mistakes(text, tool = language_tool_python.LanguageTool('en-GB')): 
