@@ -21,7 +21,7 @@ import seaborn as sns
 
 ## Cargo el dataset
 
-df = pd.read_csv("train.csv")
+df = pd.read_csv("text_data.csv")
 
 # Dividimos en train y test
 
@@ -97,7 +97,7 @@ def check_data(df):  # Busco y corrijo los errores de todos los textos del DataF
     
     return df
 
-## Ejecuto el procesamiento de los datos del dataframe
+# Ejecuto el procesamiento de los datos del dataframe
 
 correct_df = check_data(df_train)
 
@@ -273,14 +273,26 @@ def get_metrics_data(df):  # Obtengo las métricas de todos los textos del DataF
     
     return df
 
-## Ejecuto el procesamiento de los datos del dataframe
+# Ejecuto el procesamiento de los datos del dataframe
 
 scored_df = get_metrics_data(correct_df)
 
 scored_df.to_csv("scored_text.csv", index = False)
+
+# Matriz de correlaciones
+
+plt.figure(figsize=(20,20))  
+
+sns.heatmap(scored_df.corr(), annot = True, cmap = "coolwarm", center = 0)
+
+plt.title(label = "Matriz de correlaciones")
+
+plt.show()
 
 ## Paso 3: Clasificación
 
 ##continuar##
 
 ## Paso 4: Evaluación de los resultados
+
+##continuar##
