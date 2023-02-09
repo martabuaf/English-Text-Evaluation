@@ -4,6 +4,5 @@ pandas==1.4.4
 matplotlib==3.6.2
 language_tool_python==2.7.1
 contractions==0.1.73
-regex
-nltk
 textblob==0.17.1
+nltk
