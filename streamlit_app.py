@@ -9,6 +9,7 @@ import contractions
 
 # Procesamiento de lenguaje natural
 import nltk
+nltk.download('punkt')
 from textblob import TextBlob, Word
 from textblob.sentiments import PatternAnalyzer, NaiveBayesAnalyzer
 
