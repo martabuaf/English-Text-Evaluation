@@ -16,25 +16,9 @@ from textblob.sentiments import PatternAnalyzer, NaiveBayesAnalyzer
 import streamlit as st
 import base64
 
-# Introduzco el texto
+# Configuro la página
 
-st.set_page_config(page_title = "Evalúa tu inglés ahora!", page_icon = "/Users/marta/DS NOTEBOOK/Modulo 0_Proyectos/English Text Evaluation/page-icon.png", layout = "wide", initial_sidebar_state = "expanded")
-
-st.markdown("<h1 style='text-align: center; font-family: Verdana;color: white;'>Evalúa al instante tu nivel de inglés</h1>", unsafe_allow_html=True)
-
-st.markdown("<h3 style='text-align: center; color: white;'>Con este asistente de escritura gratuito, compruebe si hay errores gramaticales, de estilo y ortográficos en su texto en inglés</h1>", unsafe_allow_html=True)
-
-placeholder = st.empty()
-
-with placeholder.container():
-
-    col1, col2 = st.columns(2)
-
-    text = col1.text_area("Texto original:", height = 700, max_chars = None, key = None, help = "Introduce en cuadro el texto que desees comprobar", placeholder = "Introduce aquí tu texto")
-
-    col2.text_area("Texto corregido:", height = 700, max_chars = None, key = None, help = "En este cuadro se mostrará el texto corregido", placeholder = "Aquí se mostrarán las correciones", disabled = True)
-
-    button = st.button('Corregir texto')
+st.set_page_config(page_title = "Evalúa tu inglés ahora!", page_icon = "images/page-icon.png", layout = "wide", initial_sidebar_state = "expanded")
 
 def set_background(image_file):
 
@@ -54,7 +38,27 @@ def set_background(image_file):
     unsafe_allow_html=True
     )
 
-set_background('/Users/marta/DS NOTEBOOK/Modulo 0_Proyectos/English Text Evaluation/background-file.png')
+set_background('images/background-file.png')
+
+# Introduzco el título y subtítulo
+
+st.markdown("<h1 style='text-align: center; font-family: Verdana;color: white;'>Evalúa al instante tu nivel de inglés</h1>", unsafe_allow_html=True)
+
+st.markdown("<h3 style='text-align: center; color: white;'>Con este asistente de escritura gratuito, compruebe si hay errores gramaticales, de estilo y ortográficos en su texto en inglés</h1>", unsafe_allow_html=True)
+
+# Creo las columnas
+
+placeholder = st.empty()
+
+with placeholder.container():
+
+    col1, col2 = st.columns(2)
+
+    text = col1.text_area("Texto original:", height = 700, max_chars = None, key = None, help = "Introduce en cuadro el texto que desees comprobar", placeholder = "Introduce aquí tu texto")
+
+    col2.text_area("Texto corregido:", height = 700, max_chars = None, key = None, help = "En este cuadro se mostrará el texto corregido", placeholder = "Aquí se mostrarán las correciones", disabled = True)
+
+    button = st.button('Corregir texto')
 
 # Busco y corrijo los errores del texto
 
