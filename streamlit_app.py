@@ -12,7 +12,7 @@ import re
 from textblob import TextBlob, Word
 from textblob.sentiments import PatternAnalyzer, NaiveBayesAnalyzer
 import nltk
-nltk.download("all")
+nltk.download("all-corpora")
 
 # Integración
 import streamlit as st
