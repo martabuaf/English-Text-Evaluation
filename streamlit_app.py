@@ -12,23 +12,49 @@ import nltk
 from textblob import TextBlob, Word
 from textblob.sentiments import PatternAnalyzer, NaiveBayesAnalyzer
 
-# Visualizaciones
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 # Integración
 import streamlit as st
+import base64
 
 # Introduzco el texto
 
-st.set_page_config(page_title='Simply! Translate', page_icon='translator-icon.png', layout='wide', initial_sidebar_state='expanded')
+st.set_page_config(page_title = "Evalúa tu inglés ahora!", page_icon = "/Users/marta/DS NOTEBOOK/Modulo 0_Proyectos/English Text Evaluation/page-icon.png", layout = "wide", initial_sidebar_state = "expanded")
 
-st.title("English Text Evaluation")
+st.markdown("<h1 style='text-align: center; font-family: Verdana;color: white;'>Evalúa al instante tu nivel de inglés</h1>", unsafe_allow_html=True)
 
-text = st.text_area("Enter text:", height = None, max_chars = None, key = None, help = "Enter your text here")
+st.markdown("<h3 style='text-align: center; color: white;'>Con este asistente de escritura gratuito, compruebe si hay errores gramaticales, de estilo y ortográficos en su texto en inglés</h1>", unsafe_allow_html=True)
 
-st.write("The entered text is:",text)
+placeholder = st.empty()
+
+with placeholder.container():
+
+    col1, col2 = st.columns(2)
+
+    text = col1.text_area("Texto original:", height = 700, max_chars = None, key = None, help = "Introduce en cuadro el texto que desees comprobar", placeholder = "Introduce aquí tu texto")
+
+    col2.text_area("Texto corregido:", height = 700, max_chars = None, key = None, help = "En este cuadro se mostrará el texto corregido", placeholder = "Aquí se mostrarán las correciones", disabled = True)
+
+    button = st.button('Corregir texto')
+
+def set_background(image_file):
+
+    with open(image_file, "rb") as image_file:
+
+        encoded_string = base64.b64encode(image_file.read())
+
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-size: cover
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+
+set_background('/Users/marta/DS NOTEBOOK/Modulo 0_Proyectos/English Text Evaluation/background-file.png')
 
 # Busco y corrijo los errores del texto
 
@@ -36,11 +62,11 @@ def check_mistakes(text, tool = language_tool_python.LanguageTool('en-GB')):
 
     # Limpieza de formato
 
-    pattern = r"[^\w\.',]"
+    #pattern = r"[^\w\.',]"
 
-    text = re.sub(pattern, " ", text)
+    #text = re.sub(pattern, " ", text)
 
-    text = re.sub(f"[ ]+", " ", text)
+    #text = re.sub(f"[ ]+", " ", text)
 
     # Errores ortográficos y tipográficos    
 
@@ -157,22 +183,34 @@ def get_metrics(text):
     return words_per_sent, richness, informative, unique_verbs, unique_adjectives, unique_adverbs, polarity, subjectivity
     
     # Streamlit
+
     
-if st.button('Get corrected text'):
+if button == True:
     
     if text == "":
     
-        st.warning('Please **enter text** for correction')
+        st.warning('Introduce un texto de ejemplo')
 
     else:
     
-        corrected_text = check_mistakes(text)
+        spelling_mistakes, contract, correct_text = check_mistakes(text)
         
-        text_metrics = get_metrics(corrected_text)
-        
-        st.info(str(corrected_text))
-        
+        words_per_sent, richness, informative, unique_verbs, unique_adjectives, unique_adverbs, polarity, subjectivity = get_metrics(correct_text)
+
+        placeholder.empty()
+
+        with placeholder.container():
+
+            col1, col2 = st.columns(2)
+
+            col1.text_area("Texto original:", value = text, height = 700, max_chars = None, key = 738, help = "Introduce en el cuadro el texto que desees comprobar", placeholder = "Introduce aquí tu texto")
+
+            col2.text_area("Texto corregido:", value = correct_text, height = 700, max_chars = None, key = 739, help = "En este cuadro se mostrará el texto corregido", placeholder = "Aquí se mostrarán las correciones", disabled = True)
+            
+            button = st.button('Corregir texto', key = 740)
+
         st.balloons()
 
 else:
+
     pass
