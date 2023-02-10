@@ -23,12 +23,6 @@ import seaborn as sns
 
 df = pd.read_csv("text_data.csv")
 
-# Dividimos en train y test
-
-df_train = df[0:3130] # 80% de los datos
-
-df_test = df[3130:] # 20% de los datos
-
 ## Paso 1: Procesamiento de los datos
 
 def check_mistakes(text, tool = language_tool_python.LanguageTool('en-GB')): # Busco y corrijo los errores de un solo texto
@@ -88,24 +82,22 @@ def check_data(df):  # Busco y corrijo los errores de todos los textos del DataF
     tool.close() 
 
     # Añado los valores al DataFrame
+    
+    df["correct_text"] = np.array(correct_text_list)
 
     df["spelling_mistakes"] = np.array(spelling_mistakes_list)
     
     df["contractions"] = np.array(contract_list)
-
-    df["correct_text"] = np.array(correct_text_list)
     
     return df
 
 # Ejecuto el procesamiento de los datos del dataframe
 
-correct_df = check_data(df_train)
+correct_df = check_data(df)
 
 correct_df.to_csv("corrected_text.csv", index = False)
 
 ## Paso 2: Procesamiento del lenguaje natural (NLP)
-
-correct_df = pd.read_csv("corrected_text.csv")
 
 def get_metrics(text): # Obtengo las métricas de un solo texto
 
@@ -278,21 +270,3 @@ def get_metrics_data(df):  # Obtengo las métricas de todos los textos del DataF
 scored_df = get_metrics_data(correct_df)
 
 scored_df.to_csv("scored_text.csv", index = False)
-
-# Matriz de correlaciones
-
-plt.figure(figsize=(20,20))  
-
-sns.heatmap(scored_df.corr(), annot = True, cmap = "coolwarm", center = 0)
-
-plt.title(label = "Matriz de correlaciones")
-
-plt.savefig("heatmap.png")
-
-## Paso 3: Clasificación
-
-##continuar##
-
-## Paso 4: Evaluación de los resultados
-
-##continuar##
