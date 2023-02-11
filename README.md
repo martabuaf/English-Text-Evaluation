@@ -14,7 +14,7 @@
 <h3>Paso 3: Clasificación</h3> 
 <p>Llevaremos a cabo la clasificación supervisada de los datos. Para ello utilizamos previamente los datos de entrenamiento para entrenar el modelo, que luego aplicaremos sobre los datos de prueba. Estudiaremos diferentes métodos de clasificación y buscaremos los valores óptimos de los parámetros.</p>
 <h3>Paso 4: Evaluación de los resultados</h3> 
-<p>Tras la evaluación de los distintos métodos, nos centraremos en el que mejor resultados nos aporta para nuestro fin. Escogimos utilizar Logistic Regression por que nos devuelve los resultados de la clasificación lo más similares a nuestros datos de prueba.</p>
+<p>Tras la evaluación de los distintos métodos, nos centraremos en el que mejor resultados nos aporta para nuestro fin. Escogimos utilizar Logistic Regression por es el que nos devuelve los resultados de la clasificación lo más similares a nuestros datos de prueba.</p>
 <h3>Paso 6: Integración</h3> 
 <p>Una vez que tenemos el modelo listo, lo integraremos con Streamlit Share y lo probaremos sobre nuevos datos.</p>
 
