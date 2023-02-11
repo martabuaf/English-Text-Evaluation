@@ -15,4 +15,6 @@
 <p>Tras la evaluación de los distintos métodos, nos centraremos en el que mejor resultados nos aporta para nuestro fin. Representaremos los datos resultantes de la clasificación para los datos de prueba.</p>
 <h3>Paso 6: Integración</h3> 
 <p>Una vez que tenemos el modelo listo, lo integraremos con Streamlit y lo probaremos sobre nuevos datos.</p>
-<p>Puedes utilizar nuestra app de corrector de textos en el siguiente <a href = "https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data](https://martabuaf-english-text-evaluation-streamlit-app-qnuz0s.streamlit.app/">enlace</a>.</p>
+<p>Puedes utilizar nuestra app de corrector de textos en el siguiente <a href = "https://martabuaf-english-text-evaluation-streamlit-app-qnuz0s.streamlit.app/">enlace</a>.</p>
+
+Esperamos que la disfrutes!! 😄
