@@ -14,6 +14,12 @@ from textblob.sentiments import PatternAnalyzer, NaiveBayesAnalyzer
 import nltk
 nltk.download("all")
 
+# Clasificación
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.linear_model import LogisticRegression
+
 # Integración
 import streamlit as st
 import base64
@@ -175,13 +181,29 @@ if button == True:
             polarity = blob.sentiment[0]
 
             subjectivity = blob.sentiment[1]
+            
+            # Clasificación del texto
+            
+            df = pd.read_csv("scored_text.csv")
 
-            #blob = TextBlob(text, analyzer = NaiveBayesAnalyzer())
+            labels = ["cohesion", "syntax", "vocabulary", "phraseology", "grammar", "conventions"]
 
-            #positive = blob.sentiment[1]
+            for label in labels:
 
-            #negative = blob.sentiment[2]
+                df[label] = df[label].apply(lambda x: int((x*2)-2.0))
+                
+            x_train = MinMaxScaler().fit_transform(np.array(df[["spelling_mistakes", "contractions", "words_per_sent", "richness", "informative", "unique_verbs", "unique_adjectives", "unique_adverbs", "polarity", "subjectivity"]]))
 
+            y_train = np.array(df[["cohesion", "syntax", "vocabulary", "phraseology", "grammar", "conventions"]])
+
+            x_test = np.array([spelling_mistakes, contract, words_per_sent, richness, informative, unique_verbs, unique_adjectives, unique_adverbs, polarity, subjectivity]).reshape(1, 10)
+
+            model = MultiOutputClassifier(LogisticRegression(max_iter = 200)).fit(x_train, y_train)
+
+            y_pred = model.predict(x_test)
+
+            y_pred = [abs((y+2.0)/2) for y in y_pred[0]] # Predicciones del modelo
+            
             placeholder.empty()
 
             with placeholder.container():
@@ -196,7 +218,7 @@ if button == True:
 
                 colA, colB, colC, colD, colE = st.columns((1, 2, 1, 2, 1))
 
-                data_1 = pd.DataFrame([["Cohesión", 1.0], ["Sintaxis", 1.5], ["Vocabulario", 2.0]], columns = ["Metric", "Grade"])
+                data_1 = pd.DataFrame([["Cohesión", y_pred[0]], ["Sintaxis", y_pred[1]], ["Vocabulario", y_pred[2]]], columns = ["Metric", "Grade"])
 
                 chart_1 = alt.Chart(data_1).mark_bar(cornerRadius = 50, color = "#2A6485").encode(x = alt.X("Grade:Q", axis = None, scale = alt.Scale(domain = [0, 5])), y = alt.Y("Metric:N", title = "", sort = ["Cohesión", "Sintaxis", "Vocabulario"]))
 
@@ -206,7 +228,7 @@ if button == True:
 
                 colB.altair_chart(final_bar_1, use_container_width = True)
 
-                data_2 = pd.DataFrame([["Fraseología", 2.5], ["Gramática", 3.0], ["Convenciones", 3.5]], columns = ["Metric", "Grade"])
+                data_2 = pd.DataFrame([["Fraseología", y_pred[3]], ["Gramática", y_pred[4]], ["Convenciones", y_pred[5]]], columns = ["Metric", "Grade"])
 
                 chart_2 = alt.Chart(data_2).mark_bar(cornerRadius = 50, color = "#2A6485").encode(x = alt.X("Grade:Q", axis = None, scale = alt.Scale(domain = [0, 5])), y = alt.Y("Metric:N", title = "", sort = ["Fraseología", "Gramática", "Convenciones"]))
 
@@ -236,21 +258,21 @@ if button == True:
 
                 col3, col4, col5 = st.columns(3)
 
-                spelling_mistakes_delta = f"{spelling_mistakes - 10} más que la media" if (spelling_mistakes - 10) > 0 else f"{abs(spelling_mistakes - 10)} menos que la media"
+                spelling_mistakes_delta = f"{spelling_mistakes - 23} más que la media" if (spelling_mistakes - 23) > 0 else f"{abs(spelling_mistakes - 23)} menos que la media"
 
-                spelling_mistakes_color = "inverse" if (spelling_mistakes - 10) > 0 else "normal"
+                spelling_mistakes_color = "inverse" if (spelling_mistakes - 23) > 0 else "normal"
 
                 col3.metric(label = "Errores gramaticales", value = spelling_mistakes, delta = spelling_mistakes_delta, delta_color = spelling_mistakes_color)
 
-                contract_delta = f"{contract - 10} más que la media" if (contract - 10) > 0 else f"{abs(contract - 10)} menos que la media"
+                contract_delta = f"{contract - 7} más que la media" if (contract - 7) > 0 else f"{abs(contract - 7)} menos que la media"
 
-                contract_color = "inverse" if (contract - 10) > 0 else "normal"
+                contract_color = "inverse" if (contract - 7) > 0 else "normal"
 
                 col4.metric(label = "Contracciones", value = contract , delta = contract_delta, delta_color = contract_color)
 
-                uniqueness_delta = f"{uniqueness - 35} más que la media" if uniqueness > 35 else f"{abs(uniqueness - 35)} menos que la media"
+                uniqueness_delta = f"{uniqueness - 61} más que la media" if uniqueness > 61 else f"{abs(uniqueness - 61)} menos que la media"
 
-                uniqueness_color = "normal" if uniqueness > 35 else "inverse"
+                uniqueness_color = "normal" if uniqueness > 61 else "inverse"
                 
                 col5.metric(label = "Palabras únicas", value = uniqueness, delta = uniqueness_delta, delta_color = uniqueness_color) 
 
