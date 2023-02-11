@@ -14,7 +14,10 @@
 <h3>Paso 4: Evaluación de los resultados</h3> 
 <p>Tras la evaluación de los distintos métodos, nos centraremos en el que mejor resultados nos aporta para nuestro fin. Representaremos los datos resultantes de la clasificación para los datos de prueba.</p>
 <h3>Paso 6: Integración</h3> 
-<p>Una vez que tenemos el modelo listo, lo integraremos con Streamlit y lo probaremos sobre nuevos datos.</p>
+<p>Una vez que tenemos el modelo listo, lo integraremos con Streamlit Share y lo probaremos sobre nuevos datos.</p>
 <p>Puedes utilizar nuestra app de corrector de textos en el siguiente <a href = "https://martabuaf-english-text-evaluation-streamlit-app-qnuz0s.streamlit.app/">enlace</a>.</p>
-
-Esperamos que la disfrutes!! 😄
+<div>
+<img src="/images/srteamlit-app_01.png" alt="Starting the webapp">
+<img src="/images/srteamlit-app_01.png" alt="Results of text processing and classification">
+</div>
+<h1 style="text-align:center;">Esperamos que la disfrutes!! 😄</h1>
