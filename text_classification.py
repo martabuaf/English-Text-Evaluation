@@ -1,8 +1,5 @@
 ## Librerias
 
-# In[1]:
-
-
 # Procesamiento de datos
 import numpy as np
 import pandas as pd
@@ -256,7 +253,7 @@ y_pred = np.around(y_pred)
 
 desviacion()
 
-# Metodos de Clasificacion
+## Metodos de Clasificacion
 
 clasificadores = [LogisticRegression(max_iter=1000), KNeighborsClassifier(), NearestCentroid(), GaussianNB(), DecisionTreeClassifier(), RandomForestClassifier(), SVC(), AdaBoostClassifier(), GradientBoostingClassifier()]
 
