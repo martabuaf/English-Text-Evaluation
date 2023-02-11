@@ -17,7 +17,7 @@
 <p>Una vez que tenemos el modelo listo, lo integraremos con Streamlit Share y lo probaremos sobre nuevos datos.</p>
 <p>Puedes utilizar nuestra app de corrector de textos en el siguiente <a href = "https://martabuaf-english-text-evaluation-streamlit-app-qnuz0s.streamlit.app/">enlace</a>.</p>
 <div>
-<img src="./images/srteamlit-app_01.png" alt="Starting the webapp">
+<img src="[./images/srteamlit-app_01.png](https://github.com/martabuaf/English-Text-Evaluation/blob/main/images/streamlit-app_01.png)" alt="Starting the webapp">
 <img src="./images/srteamlit-app_01.png" alt="Results of text processing and classification">
 </div>
 <h2 style="text-align:center;">Esperamos que la disfrutes!! 😄</h2>
