@@ -1,6 +1,6 @@
 <h1 style="text-align:center;">Evaluación de textos en inglés</h1>
 
-<img width = "600px" style= "display: block; margin-left: auto; margin-right: auto;" align="center" src="https://raw.githubusercontent.com/martabuaf/English-Text-Evaluation/main/images/streamlit-app_02.png?token=GHSAT0AAAAAAB5FKWUY5YEUWIUXM57EXMA6Y7H2MYA" alt="Results of text processing and classification"/>
+![streamlit-app_02](https://user-images.githubusercontent.com/122131317/218274886-180f6cd8-a13a-458a-bcdb-dc4c07f97995.png)
 
 <h3>Resumen:</h3>
 <p>El objetivo de este proyecto es evaluar la calidad lingüística de textos en inglés. Utilizaremos un conjunto de datos de ensayos escritos por estudiantes y sus correspondienets evaluaciones para desarrollar una herramienta que sirva de apoyo a cualquier persona que pretenda mejorar su competencia en lengua inglesa.</p>
@@ -18,7 +18,7 @@
 <h3>Paso 6: Integración</h3> 
 <p>Una vez que tenemos el modelo listo, lo integraremos con Streamlit Share y lo probaremos sobre nuevos datos.</p>
 
-<img width = "600px" style= "display: block; margin-left: auto; margin-right: auto;" align="center" src="https://raw.githubusercontent.com/martabuaf/English-Text-Evaluation/main/images/streamlit-app_gif.gif?token=GHSAT0AAAAAAB5FKWUZSUXLDETNFGU64IYEY7H3JWA" alt="Results of text processing and classification"/>
+![streamlit-app_gif](https://user-images.githubusercontent.com/122131317/218274868-96b50c6d-8de1-4548-b04a-31dbf3cb4e9a.gif)
 
 <p>Puedes utilizar nuestra app de corrector de textos en el siguiente <a href = "https://martabuaf-english-text-evaluation-streamlit-app-qnuz0s.streamlit.app/">enlace</a>.</p>
 <h2 style="text-align:center;">Esperamos que la disfrutes!! 😄</h2>
