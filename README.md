@@ -3,7 +3,7 @@
 ![streamlit-app_02](https://user-images.githubusercontent.com/122131317/218274886-180f6cd8-a13a-458a-bcdb-dc4c07f97995.png)
 
 <h3>Resumen:</h3>
-<p>El objetivo de este proyecto es evaluar la calidad lingüística de textos en inglés. Utilizaremos un conjunto de datos de ensayos escritos por estudiantes y sus correspondienets evaluaciones para desarrollar una herramienta que sirva de apoyo a cualquier persona que pretenda mejorar su competencia en lengua inglesa.</p>
+<p>El objetivo de este proyecto es evaluar la calidad lingüística de textos en inglés. Utilizaremos un conjunto de datos de ensayos escritos por estudiantes y sus correspondientes evaluaciones para desarrollar una herramienta que sirva de apoyo a cualquier persona que pretenda mejorar su competencia en lengua inglesa.</p>
 <p>El conjunto de datos comprende ensayos argumentativos escritos por estudiantes de inglés. Los ensayos se han puntuado según seis medidas analíticas: cohesión, sintaxis, vocabulario, fraseología, gramática y convenciones. Cada medida representa un componente de la competencia en la redacción de ensayos, y las puntuaciones más altas corresponden a una mayor competencia en esa medida. Las puntuaciones van de 1,0 a 5,0 en incrementos de 0,5. Utilizando estos datos, entrenaremos un modelo que predecirá la puntuación de cada una de las seis medidas para los textos introducidos en la herramienta. Para ello divideremos los datos en datos de entrenamiento y datos de prueba.</p>
 <p>Los datos con los que hemos trabajado los encontramos <a href = "https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data">aquí</a>.</p>
 
