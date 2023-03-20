@@ -10,7 +10,7 @@
 <h3>Paso 1: Carga y procesamiento de los datos</h3> 
 <p>Procesaremos y corregiremos los textos originales de manera que resulte más fácil su interpretación y, al mismo tiempo, crearemos nuevos atributos que midan la cantidad de errores, ampliando así la cantidad de variables totales del modelo.</p>
 <h3>Paso 2: Procesamiento del lenguaje natural (NLP)</h3> 
-<p>Una vez hemos limpiado y corregido el texto, nos interesa evaluar la polaridad y la subjectividad. Añadiremos estos atributos a los datos.</p>
+<p>Una vez hemos limpiado y corregido el texto, nos interesa evaluar la polaridad y la subjetividad. Añadiremos estos atributos a los datos.</p>
 <h3>Paso 3: Clasificación</h3> 
 <p>Llevaremos a cabo la clasificación supervisada de los datos. Para ello utilizamos previamente los datos de entrenamiento para entrenar el modelo, que luego aplicaremos sobre los datos de prueba. Estudiaremos diferentes métodos de clasificación y buscaremos los valores óptimos de los parámetros.</p>
 <h3>Paso 4: Evaluación de los resultados</h3> 
